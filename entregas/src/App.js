@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import Section from './section.js'; //Una vez importada se coloca en el return como un tag autocerrado
+import {Section, JsAndJsx} from './section.js'; //Una vez importada se coloca en el return como un tag autocerrado
 
 function App() {
   return (
@@ -19,6 +19,7 @@ function App() {
           Mira ma
         </a>
         <Section/>
+        <JsAndJsx/>
       </header>
     </div>
   );
