@@ -1,11 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
-import {Section, JsAndJsx} from './section.js'; //Una vez importada se coloca en el return como un tag autocerrado
+import './App.css'
+
 import Component, {ComponentParam} from './components.js';
+import {ItemListContainer} from './components/container/ItemListContainer'
+import {NavBar} from './components/NavBar/NavBar'
+
 
 function App() {
   return (
     <>
+      <NavBar/>
+      <ItemListContainer greeting="Bienvenidos al Shop!"/>
     </>
   );
 }

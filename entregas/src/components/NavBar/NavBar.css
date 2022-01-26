@@ -1,0 +1,26 @@
+.navbar{
+    background-color: burlywood;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1% 10%;
+}
+
+.navbar-header{
+    font-size: 40px;
+    font-weight: lighter;
+    width: 100%;
+}
+
+.navbar-nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 40%;
+}
+
+.navbar-nav-elem{
+    font-weight: bold;
+    color:oldlace;
+    cursor:pointer;
+}
