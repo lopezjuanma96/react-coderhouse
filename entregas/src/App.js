@@ -1,6 +1,5 @@
 import './App.css'
 
-import Component, {ComponentParam} from './components.js';
 import {ItemListContainer} from './components/container/ItemListContainer'
 import {NavBar} from './components/NavBar/NavBar'
 
