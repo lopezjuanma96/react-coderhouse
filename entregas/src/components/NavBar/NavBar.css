@@ -1,9 +1,15 @@
 .navbar{
     background-color: burlywood;
+    border-bottom: rgba(160, 82, 45, 10) solid 3px;
+    padding: 1% 10%;
+}
+
+.navbar-content{
     display:flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1% 10%;
+    column-gap: 6%;
+    margin-bottom: 1%;
 }
 
 .navbar-header{
@@ -16,11 +22,18 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 40%;
+    width: 45%;
 }
 
 .navbar-nav-elem{
     font-weight: bold;
     color:oldlace;
     cursor:pointer;
+}
+
+hr{
+    color:white;
+    background-color: white;
+    border:0px;
+    height:2px;
 }

@@ -1,5 +1,12 @@
 .header{
+    padding: 1% 3%;
+}
+
+.headerTitle{
     font-size: 50px;
     font-weight: bolder;
-    color:blueviolet;
+    background-color: silver;
+    color:gray;
+    max-width: fit-content;
+    padding: 0.2% 1%;
 }
