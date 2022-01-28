@@ -7,11 +7,11 @@ export const NavBar = () => {
     return(
         <div className="navbar">
             <div className="navbar-content">
-                <h3 className="navbar-header">Shop</h3>
+                <h3 className="navbar-header">La Raquela - Shop</h3>
                 <div className="navbar-nav">
-                    <p className="navbar-nav-elem">Categoría 1</p>
-                    <p className="navbar-nav-elem">Categoría 2</p>
-                    <p className="navbar-nav-elem">Categoría 3</p>
+                    <p className="navbar-nav-elem">Artesanales</p>
+                    <p className="navbar-nav-elem">Regionales</p>
+                    <p className="navbar-nav-elem">Combos</p>
                 </div>
                 <CartWidget/>
             </div>

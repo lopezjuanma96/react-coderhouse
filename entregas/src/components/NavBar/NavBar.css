@@ -20,13 +20,13 @@
 
 .navbar-nav{
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    width: 45%;
+    width: 60%;
 }
 
 .navbar-nav-elem{
     font-weight: bold;
+    font-size: 19px;
     color:oldlace;
     cursor:pointer;
 }
@@ -35,5 +35,5 @@ hr{
     color:white;
     background-color: white;
     border:0px;
-    height:2px;
+    height:1px;
 }
