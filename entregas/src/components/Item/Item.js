@@ -1,12 +1,19 @@
-
+import "./Item.css"
 export const Item = ({product}) => {
     
-    let {nameS: singular, nameP:plural, price, quantity: amt, image:img} = product;
+    let {id, nameS: singular, nameP:plural, price, quantity: amt, image:img} = product;
 
     return (
-        <>
-            <h2>{singular}</h2>
-            <p>{price}</p>
-        </>
+        <div className="productBlock">
+            <img className="productImage" src={img} alt={id}></img>
+            <div className="productDescriptionBlock">
+                <h2 className="productName">{amt>1? plural:singular}</h2>
+                <p className="productPrice">${price}</p>
+            </div>
+            <div className="productStockBlock">
+                <p className="productStock">En stock: {amt}</p>
+                <button className="addToCartButton">AÑADIR</button>
+            </div>
+        </div>
     );
 }
