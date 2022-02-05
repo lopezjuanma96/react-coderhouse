@@ -25,6 +25,8 @@ console.log(mensaje);
 
 console.log(temp <= 32 ? "Temperatura agradable" : "Infierno");
 
+//Operador de coalescencia nula: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator
+//similar al ternario pero más directo, si el objeto es null devuelve lo que esta a la derecha, sino devuelve el objeto mismo
 /*Desectructuración: Recuperar propiedades de objetos */
 
 //Desectructuración de Objetos
