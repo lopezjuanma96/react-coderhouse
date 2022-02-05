@@ -1,19 +1,24 @@
 import './NavBar.css'
 
 import { CartWidget } from './CartWidget';
+import { Link } from 'react-router-dom';
 
 export const NavBar = () => {
 
     return(
         <div className="navbar">
             <div className="navbar-content">
-                <h3 className="navbar-header">La Raquela - Shop</h3>
+                <Link to='/'>
+                    <h3 className="navbar-header">La Raquela - Shop</h3>
+                </Link>
                 <div className="navbar-nav">
-                    <p className="navbar-nav-elem">Artesanales</p>
-                    <p className="navbar-nav-elem">Regionales</p>
-                    <p className="navbar-nav-elem">Combos</p>
+                    <Link to='/productos'className="navbar-nav-elem">Artesanales</Link>
+                    <Link to='/nosotros' className="navbar-nav-elem">Regionales</Link>
+                    <Link to='/contacto' className="navbar-nav-elem">Combos</Link>
                 </div>
-                <CartWidget/>
+                <Link to='/cart'>
+                    <CartWidget/>
+                </Link>
             </div>
             <hr/>
         </div>
