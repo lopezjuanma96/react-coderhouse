@@ -9,3 +9,13 @@ No se presentó a tiempo
 ## Entrega 2
 
 Agregado de NavBar básico e ItemListContainer con título pasado cómo parámetro
+
+## Entrega 3
+
+Agregadas simulacion de solicitud a Servidor usando Promesas, Timeout y json con datos
+
+## Entrega 4 + Primera entrega Proy. Final
+
+Generadas la navegación con Routing dentro del ámbito SPA, diferenciando a través de parámetros las páginas para cada categoria de productos y de cada producto en particular.
+Linkeado a el "logo" se encuentra la categoría general de todos los productos.
+Se agregaron métodos para detectar si no existe una cierta categoría o producto.
