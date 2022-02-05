@@ -6,8 +6,7 @@ import { ItemList } from '../Item/ItemList';
 
 export const ItemListContainer = ({greeting}) => {
     
-    let [stockState, setStock] = useState({});
-    let [loaded, setLoaded] = useState(false);
+    let [stockState, setStock] = useState([{}, false]);
     const dep_arr = [];
 
     useEffect( 
@@ -15,15 +14,13 @@ export const ItemListContainer = ({greeting}) => {
             getStock(true).then(
                 (res) => {
                     console.log("Products Loaded successfully");
-                    setStock(res);
-                    setLoaded(true);
+                    setStock([res, true]);
                 } 
             ).catch(
                 (res) => {
                     console.log("Products Loading failed due to");
                     console.log(res);
-                    setStock({});
-                    setLoaded(false);
+                    setStock([{}, false]);
                 }
             )
         },
@@ -35,7 +32,7 @@ export const ItemListContainer = ({greeting}) => {
             <div className="header">
                 <h2 className="headerTitle">{greeting}</h2>
             </div>
-            <ItemList loaded={loaded} stock={stockState}/>
+            <ItemList loaded={stockState[1]} stock={stockState[0]}/>
         </>
     );
 }
