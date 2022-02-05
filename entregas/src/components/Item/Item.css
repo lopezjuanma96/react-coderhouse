@@ -66,3 +66,20 @@
     cursor: pointer;
     background-color: rgba(160, 82, 45, 1);
 }
+
+.moreInfoButton{
+    padding: 4% 6%;
+    background-color: transparent;
+    color: silver;
+    font-weight: normal;
+}
+
+.moreInfoButton:hover{
+    cursor: pointer;
+    color: saddlebrown;
+}
+
+.moreInfoButton:active{
+    cursor: pointer;
+    color: grey;
+}

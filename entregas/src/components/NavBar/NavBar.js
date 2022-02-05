@@ -8,13 +8,13 @@ export const NavBar = () => {
     return(
         <div className="navbar">
             <div className="navbar-content">
-                <Link to='/'>
+                <Link to='/productos'>
                     <h3 className="navbar-header">La Raquela - Shop</h3>
                 </Link>
                 <div className="navbar-nav">
-                    <Link to='/productos'className="navbar-nav-elem">Artesanales</Link>
-                    <Link to='/nosotros' className="navbar-nav-elem">Regionales</Link>
-                    <Link to='/contacto' className="navbar-nav-elem">Combos</Link>
+                    <Link to='/productos/artesanales'className="navbar-nav-elem">Artesanales</Link>
+                    <Link to='/productos/regionales' className="navbar-nav-elem">Regionales</Link>
+                    <Link to='/productos/combos' className="navbar-nav-elem">Combos</Link>
                 </div>
                 <Link to='/cart'>
                     <CartWidget/>

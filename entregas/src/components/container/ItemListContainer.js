@@ -1,20 +1,30 @@
 import './ItemListContainer.css'
 import { stock } from "./stock";
 import { useEffect, useState } from "react";
+import {useParams} from 'react-router-dom';
 
 import { ItemList } from '../Item/ItemList';
 
 export const ItemListContainer = ({greeting}) => {
     
     let [stockState, setStock] = useState([{}, false]);
-    const dep_arr = [];
+    let {catId} = useParams();
+    const dep_arr = [catId];
+
+    //console.log(catId);
+    //console.log(stockState);
 
     useEffect( 
         () => {
+            setStock([{}, false]) //this will render a loading when changing from categories
             getStock(true).then(
                 (res) => {
                     console.log("Products Loaded successfully");
-                    setStock([res, true]);
+                    setStock([
+                        catId ? res.filter((elem) => elem.category === catId)
+                            :res    
+                        , true
+                    ]);
                 } 
             ).catch(
                 (res) => {
@@ -30,7 +40,7 @@ export const ItemListContainer = ({greeting}) => {
     return(
         <>
             <div className="header">
-                <h2 className="headerTitle">{greeting}</h2>
+                <h2 className="headerTitle">{catId?greeting + " " + catId + "!": greeting}</h2>
             </div>
             <ItemList loaded={stockState[1]} stock={stockState[0]}/>
         </>

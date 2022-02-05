@@ -10,15 +10,14 @@ function App() {
       <NavBar/>
       
       <Routes>
-        <Route path="/" element={<h1>HOME - Ptazeta pa</h1>}/>
-        
-        <Route path ="/productos" element={<ItemListContainer greeting="Bienvenidos al Shop!"/>}></Route> 
+        <Route path ="/productos/:catId" element={<ItemListContainer greeting="Bienvenidos a"/>}></Route>
+        <Route path ="/productos" element={<ItemListContainer greeting="Bienvenidos al Shop!"/>}/>
         
         <Route path ="/contacto" element={<p>Apaga el celular si  no quiere que te llame</p>}></Route>
 
         <Route path="/nosotros" element={<h1> somo nosotro!</h1>}/>
 
-        <Route path="*" element={<Navigate to="/"/>}/>
+        <Route path="*" element={<Navigate to="/productos"/>}/>
       </Routes>
     </BrowserRouter>
   );

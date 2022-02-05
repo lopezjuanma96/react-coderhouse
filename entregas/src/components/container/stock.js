@@ -5,7 +5,8 @@ export const stock = [
         "nameP": "Dulces Caseros",
         "quantity": 25,
         "price": 200,
-        "image": "./assets/img/dolce.png"
+        "image": "../assets/img/dolce.png",
+        "category": "artesanales"
     },
     {
         "id":"PR02",
@@ -13,7 +14,8 @@ export const stock = [
         "nameP": "Mapas de la Zona",
         "quantity": 100,
         "price": 50,
-        "image": "./assets/img/map.png"
+        "image": "../assets/img/map.png",
+        "category": "regionales"
     },
     {
         "id":"PR03",
@@ -21,7 +23,8 @@ export const stock = [
         "nameP": "Kits de Baño",
         "quantity": 10,
         "price": 250,
-        "image": "./assets/img/kit.png"
+        "image": "../assets/img/kit.png",
+        "category": "combos"
     },
     {
         "id":"PR04",
@@ -29,7 +32,8 @@ export const stock = [
         "nameP": "Gift Card",
         "quantity": 50,
         "price": 1800,
-        "image": "./assets/img/gift.png"
+        "image": "../assets/img/gift.png",
+        "category": "combos"
     },
     {
         "id":"PR05",
@@ -37,6 +41,7 @@ export const stock = [
         "nameP": "Filtros de Agua",
         "quantity": 1,
         "price": 4000,
-        "image": "./assets/img/filt.png"
+        "image": "../assets/img/filt.png",
+        "category": "regionales"
     }
 ]
