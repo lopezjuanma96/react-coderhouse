@@ -1,5 +1,5 @@
 import './ItemListContainer.css'
-import { stock } from "../data/stock";
+import { getStock } from '../utils/promises';
 import { categories } from '../data/categories';
 import { useEffect, useState } from "react";
 import {useParams} from 'react-router-dom';
@@ -50,24 +50,4 @@ export const ItemListContainer = ({greeting}) => {
                     <h2 className="headerTitle">{catId + " no es una categoría válida"}</h2>
                 </div>
     );
-}
-
-const getStock = (success) => {
-    const promis = new Promise(
-        (resolve, reject) => {
-            setTimeout( //this would be replaced with getting the values from the API
-                () => {
-                    if(success){
-                        resolve(stock); //resolve could return the value from the API
-                    } else {
-                        reject(stock);
-                    }
-                },
-                2000
-            )
-        }
-    )
-    console.log("Promise Created.")
-
-    return promis;
 }

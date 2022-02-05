@@ -1,5 +1,6 @@
 import './App.css'
 import {ItemListContainer} from './components/container/ItemListContainer'
+import { ItemDetailContainer } from './components/container/ItemDetailContainer'
 import {NavBar} from './components/NavBar/NavBar'
 import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom'
 
@@ -10,14 +11,11 @@ function App() {
       <NavBar/>
       
       <Routes>
-        <Route path ="/productos/:catId" element={<ItemListContainer greeting="Bienvenidos a"/>}></Route>
-        <Route path ="/productos" element={<ItemListContainer greeting="Bienvenidos al Shop!"/>}/>
+        <Route path ="/category/:catId" element={<ItemListContainer greeting="Bienvenidos a"/>}></Route>
+        <Route path ="/category" element={<ItemListContainer greeting="Bienvenidos al Shop!"/>}/>
         
-        <Route path ="/contacto" element={<p>Apaga el celular si  no quiere que te llame</p>}></Route>
-
-        <Route path="/nosotros" element={<h1> somo nosotro!</h1>}/>
-
-        <Route path="*" element={<Navigate to="/productos"/>}/>
+        <Route path ="/item/:itemId" element={<ItemDetailContainer />}/>
+        <Route path="*" element={<Navigate to="/category"/>}/>
       </Routes>
     </BrowserRouter>
   );

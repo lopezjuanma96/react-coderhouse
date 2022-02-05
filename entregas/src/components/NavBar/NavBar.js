@@ -11,14 +11,14 @@ export const NavBar = () => {
     return(
         <div className="navbar">
             <div className="navbar-content">
-                <Link to='/productos'>
+                <Link to='/'>
                     <h3 className="navbar-header">La Raquela - Shop</h3>
                 </Link>
                 <div className="navbar-nav">
                     {categories.map( 
                         (elem, i) => {
                             return(
-                                <Link key={i} to={'/productos/' + elem} className="navbar-nav-elem">{elem.toUpperCase()}</Link>
+                                <Link key={i} to={'/category/' + elem} className="navbar-nav-elem">{elem.toUpperCase()}</Link>
                             );
                         }
                     )}
