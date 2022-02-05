@@ -1,5 +1,6 @@
 import './ItemListContainer.css'
-import { stock } from "./stock";
+import { stock } from "../data/stock";
+import { categories } from '../data/categories';
 import { useEffect, useState } from "react";
 import {useParams} from 'react-router-dom';
 
@@ -7,9 +8,8 @@ import { ItemList } from '../Item/ItemList';
 
 export const ItemListContainer = ({greeting}) => {
     
-    let [stockState, setStock] = useState([{}, false]);
+    let [stockState, setStock] = useState([[], false]);
     let {catId} = useParams();
-    const dep_arr = [catId];
 
     //console.log(catId);
     //console.log(stockState);
@@ -17,33 +17,38 @@ export const ItemListContainer = ({greeting}) => {
     useEffect( 
         () => {
             setStock([{}, false]) //this will render a loading when changing from categories
-            getStock(true).then(
+            getStock(true).then( 
                 (res) => {
                     console.log("Products Loaded successfully");
                     setStock([
                         catId ? res.filter((elem) => elem.category === catId)
-                            :res    
-                        , true
+                            :res, 
+                        true
                     ]);
                 } 
             ).catch(
                 (res) => {
                     console.log("Products Loading failed due to");
                     console.log(res);
-                    setStock([{}, false]);
+                    setStock([[], false]);
                 }
             )
         },
-        dep_arr
+        [catId]
     )
 
     return(
-        <>
-            <div className="header">
-                <h2 className="headerTitle">{catId?greeting + " " + catId + "!": greeting}</h2>
-            </div>
-            <ItemList loaded={stockState[1]} stock={stockState[0]}/>
-        </>
+            categories.find((elem) => elem === catId) || !catId?
+                <>
+                <div className="header">
+                    <h2 className="headerTitle">{catId?greeting + " " + catId + "!": greeting}</h2>
+                </div>
+                <ItemList loaded={stockState[1]} stock={stockState[0]}/>
+                </>
+                :
+                <div className="header">
+                    <h2 className="headerTitle">{catId + " no es una categoría válida"}</h2>
+                </div>
     );
 }
 

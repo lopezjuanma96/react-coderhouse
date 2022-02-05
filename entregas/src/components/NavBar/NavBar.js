@@ -3,8 +3,11 @@ import './NavBar.css'
 import { CartWidget } from './CartWidget';
 import { Link } from 'react-router-dom';
 
+import { categories } from '../data/categories';
+
 export const NavBar = () => {
 
+    console.log(categories)
     return(
         <div className="navbar">
             <div className="navbar-content">
@@ -12,9 +15,13 @@ export const NavBar = () => {
                     <h3 className="navbar-header">La Raquela - Shop</h3>
                 </Link>
                 <div className="navbar-nav">
-                    <Link to='/productos/artesanales'className="navbar-nav-elem">Artesanales</Link>
-                    <Link to='/productos/regionales' className="navbar-nav-elem">Regionales</Link>
-                    <Link to='/productos/combos' className="navbar-nav-elem">Combos</Link>
+                    {categories.map( 
+                        (elem, i) => {
+                            return(
+                                <Link key={i} to={'/productos/' + elem} className="navbar-nav-elem">{elem.toUpperCase()}</Link>
+                            );
+                        }
+                    )}
                 </div>
                 <Link to='/cart'>
                     <CartWidget/>
