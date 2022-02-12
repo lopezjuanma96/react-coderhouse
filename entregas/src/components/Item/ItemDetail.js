@@ -1,10 +1,17 @@
 import './ItemDetail.css'
 import { defaultText } from '../data/unknown';
 import { ItemCount } from "./ItemCount";
+import { useState } from 'react';
 
 export const ItemDetail = ({loaded, product}) => {
     let {id, nameS: singular, nameP:plural, price, quantity: amt, image:img} = product;
 
+    const [counter, setCounter] = useState(0);
+
+    const addToCartHandler = () => {
+        const prodToAdd = [id, singular, counter, price];
+        console.log(prodToAdd);
+    }
     return(
         <>
             <div className="itemBlock">
@@ -17,8 +24,8 @@ export const ItemDetail = ({loaded, product}) => {
                     <p className="itemPrice">${price}</p>
                     <p className="itemStock">En stock: {amt}</p>
                     <div className="addToCartBlock">
-                        <ItemCount max={amt}/>
-                        <button className="addToCartButton">AÑADIR</button>
+                        <ItemCount max={amt} counter={counter} setCounter={setCounter}/>
+                        <button className="addToCartButton" onClick={addToCartHandler}>AÑADIR</button>
                     </div>
                 </div>
             </div>
