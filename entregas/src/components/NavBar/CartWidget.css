@@ -1,10 +1,10 @@
-.cartBlock{
+.cartWidgetBlock{
     display:flex;
     flex-direction:row;
     justify-content: space-between;
 }
 
-.cartBlockTotal {
+.cartWidgetBlockTotal {
     color : burlywood;
     font-weight: bolder;
     background-color: white;
