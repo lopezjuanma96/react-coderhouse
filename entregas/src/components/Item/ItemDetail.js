@@ -1,5 +1,6 @@
 import './ItemDetail.css'
 import { defaultText } from '../data/unknown';
+import { ItemCount } from "./ItemCount";
 
 export const ItemDetail = ({loaded, product}) => {
     let {id, nameS: singular, nameP:plural, price, quantity: amt, image:img} = product;
@@ -15,7 +16,10 @@ export const ItemDetail = ({loaded, product}) => {
                 <div className="itemStockBlock">
                     <p className="itemPrice">${price}</p>
                     <p className="itemStock">En stock: {amt}</p>
-                    <button className="addToCartButton">AÑADIR</button>
+                    <div className="addToCartBlock">
+                        <ItemCount max={amt}/>
+                        <button className="addToCartButton">AÑADIR</button>
+                    </div>
                 </div>
             </div>
         </>

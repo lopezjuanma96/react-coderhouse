@@ -1,5 +1,6 @@
 import "./Item.css"
 import { Link } from "react-router-dom";
+
 export const Item = ({product}) => {
     
     let {id, nameS: singular, nameP:plural, price, quantity: amt, image:img} = product;
