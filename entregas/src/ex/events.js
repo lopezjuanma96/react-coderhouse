@@ -86,3 +86,50 @@ Por ejemplo
 
 
 
+/*Eventos con Forms (MUY IMPORTANTES)
+
+export const Form = () => {
+
+    const [nombre, setNombre] = useState("");
+    const handleSubmit = (e) => {
+        e.preventDefault() //evita el comportamiento básico del evento submit que es recargar la pagina, ya que nosotros estamos usando una SPA
+        console.log(nombre, "submited");
+    }
+    const handleNombre = (e) => {
+        console.log(e.target.value); //me va a mostrar lo que voy escribirnedo
+        setNombre(e.target.value); //no hace falta sumarlo porque toma lo que este escrito en el input
+    }
+    //puedo poner un handler para cada uno o armar un ueState con un array y un handler que maneje cada valor.
+
+    const [values, setValues] = useState({
+        nombre: "",
+        email: ""
+    })
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        console.log(values, "submited");
+    }
+    const handleValues = (e) => { //para poder manejar cada value en especifico tengo que agregar a cada input el atributo name que tenga un string igual al nombre de cada parametro del objeto values que modifica
+        console.log(e.target); //este me muestra el evento del dom que esta disparando el evento
+        console.log(e.target.value);
+        console.log(e.target.name);
+
+        setValues({
+            ...values, //"spread" de objeto pone cada uno de los atributos y sus valores de values
+            [e.target.name]: e.target.value //"acceso dinamico" agregaria una nueva propiedad más a ese objeto, pero como en realidad ya existe en el spread de values, la reemplaza
+            //para repasar estos dos ver la intro del curso
+        })
+    }
+    
+    return(
+        <div>
+            <form onSubmit={handleSubmit}>
+                <input type="text" placeholder="tu nombre" value={nombre} onChange={handleNombre}></input> //si quiero que lo que este adentro del input sea mi variable lo tengo que pasar como valor, pero si no use el onChange, esa variable no va a cambiar y va a parecer que no me deja escribir
+                <input type="email" placeholder="usuario@correo.com"></input>
+                <button type="submit">ENVIAR</button> //al darle tipo submit adentro de un formulario, lanza la accion onSubmit del form
+                </form>
+        </div>
+    )
+}
+
+*/
