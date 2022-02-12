@@ -7,7 +7,7 @@ import { categories } from '../data/categories';
 
 export const NavBar = () => {
 
-    console.log(categories)
+    //console.log(categories)
     return(
         <div className="navbar">
             <div className="navbar-content">

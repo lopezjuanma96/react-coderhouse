@@ -54,3 +54,31 @@ usuario loggeado
 carrito
 
 */
+
+
+/*Custom provider
+
+podemos crear un componente propio que tenga todas las funciones y parametros del provider del contexto que queremos
+
+export const myContextProvider = () => {
+
+    aca coloco todas las funciones y valores que voy a poner en el context
+
+    <myContext.Provider values={{user, data, admin}}>
+        {children} //ver abajo
+    </myContext.Provider>
+}
+y luego en la app
+
+import {myContextProvider}
+
+function App() {
+
+    return(
+        <myCustomProvider>
+            ... //todo lo que ponga aca va a pasar como children, por eso arriba en la definicion de provider los tuve que renderizar
+        </myCustomProvider>
+    )
+}
+
+*/

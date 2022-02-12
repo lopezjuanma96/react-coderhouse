@@ -1,16 +1,22 @@
 import './ItemDetail.css';
 import { defaultText } from '../data/unknown';
 import { ItemCount } from "./ItemCount";
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { CartContext } from '../utils/context';
 
 export const ItemDetail = ({loaded, product}) => {
     let {id, nameS: singular, nameP:plural, price, quantity: amt, image:img} = product;
 
-    const [counter, setCounter] = useState(0);
+    const {addToCart, isInCart, howMany, changeCartAmount} = useContext(CartContext);
+    const [counter, setCounter] = useState(howMany(id));
 
     const addToCartHandler = () => {
-        const prodToAdd = [id, singular, counter, price];
-        console.log(prodToAdd);
+        if (counter === 0) return; //don't add if there's nothing to add
+        if(isInCart(id)){
+            changeCartAmount(id, counter);
+        } else {
+            addToCart({id, singular, counter, price});
+        }
     }
     return(
         <>

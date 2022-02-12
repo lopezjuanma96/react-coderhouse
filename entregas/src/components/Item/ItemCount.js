@@ -16,7 +16,7 @@ export const ItemCount = ({min = 0, max, counter, setCounter}) => {
     return (
         <div className="addToCartCounter">
             <button onClick={handleResta} className="addToCartButton">-</button>
-            <p>{counter}</p>
+            <p>En Carrito: {counter}</p>
             <button onClick={handleSuma}className="addToCartButton">+</button>
         </div>
     )
