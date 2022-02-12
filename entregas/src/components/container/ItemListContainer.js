@@ -13,7 +13,7 @@ export const ItemListContainer = () => {
     let {catId} = useParams();
 
     //console.log(catId);
-    console.log(stockState.length);
+    //console.log(stockState.length);
 
     useEffect( 
         () => {
