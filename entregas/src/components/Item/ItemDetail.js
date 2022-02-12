@@ -1,4 +1,4 @@
-import './ItemDetail.css'
+import './ItemDetail.css';
 import { defaultText } from '../data/unknown';
 import { ItemCount } from "./ItemCount";
 import { useState } from 'react';

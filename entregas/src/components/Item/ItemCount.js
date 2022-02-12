@@ -1,4 +1,3 @@
-import {useState} from 'react';
 import './ItemCount.css';
 
 export const ItemCount = ({min = 0, max, counter, setCounter}) => {
