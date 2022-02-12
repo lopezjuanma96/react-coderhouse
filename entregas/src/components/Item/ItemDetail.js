@@ -7,16 +7,11 @@ import { CartContext } from '../utils/CartContext';
 export const ItemDetail = ({product}) => {
     let {id, nameS: singular, nameP:plural, price, quantity: amt, image:img} = product;
 
-    const {addToCart, isInCart, howMany, changeCartAmount} = useContext(CartContext);
+    const {addToCart, howMany} = useContext(CartContext);
     const [counter, setCounter] = useState(howMany(id));
 
     const addToCartHandler = () => {
-        if(isInCart(id)){
-            changeCartAmount(id, counter);
-        } else {
-            if (counter === 0) return; //don't add if there's nothing to add
-            addToCart({id, singular, plural, counter, price});
-        }
+        addToCart({id, singular, plural, counter, price});
     }
     return(
         <>
