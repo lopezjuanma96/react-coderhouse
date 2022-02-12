@@ -1,53 +1,51 @@
 import './ItemListContainer.css'
 import { getStock } from '../utils/promises';
-import { categories } from '../data/categories';
 import { useEffect, useState } from "react";
-import {useParams} from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import { ItemList } from '../Item/ItemList';
+import { InvalidPage } from '../utils/InvalidPage';
 
-export const ItemListContainer = ({greeting}) => {
+export const ItemListContainer = () => {
     
-    let [stockState, setStock] = useState([[], false]);
+    let [stockState, setStock] = useState([]);
+    let [loaded, setLoaded] = useState(false);
     let {catId} = useParams();
 
     //console.log(catId);
-    //console.log(stockState);
+    console.log(stockState.length);
 
     useEffect( 
         () => {
-            setStock([{}, false]) //this will render a loading when changing from categories
+            setLoaded(false);
             getStock(true).then( 
                 (res) => {
                     console.log("Products Loaded successfully");
-                    setStock([
-                        catId ? res.filter((elem) => elem.category === catId)
-                            :res, 
-                        true
-                    ]);
+                    setStock(catId ? res.filter((elem) => elem.category === catId)
+                                :res);
                 } 
             ).catch(
                 (res) => {
                     console.log("Products Loading failed due to");
                     console.log(res);
-                    setStock([[], false]);
                 }
+            ).finally(
+                () => setLoaded(true)
             )
         },
         [catId]
     )
 
     return(
-            categories.find((elem) => elem === catId) || !catId?
-                <>
+        loaded?
+            stockState.length === 0 ?
+                <InvalidPage msg="Categoría no encontrada"/>
+                :<>
                 <div className="header">
-                    <h2 className="headerTitle">{catId?greeting + " " + catId + "!": greeting}</h2>
+                    <h2 className="headerTitle">{catId? "Bienvenidos a " + catId + "!": "Bienvenidos al Shop!"}</h2>
                 </div>
-                <ItemList loaded={stockState[1]} stock={stockState[0]}/>
+                <ItemList loaded={loaded} stock={stockState}/>
                 </>
-                :
-                <div className="header">
-                    <h2 className="headerTitle">{catId + " no es una categoría válida"}</h2>
-                </div>
+        : <h2>Loading</h2>
     );
 }

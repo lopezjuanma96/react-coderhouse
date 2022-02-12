@@ -1,10 +1,10 @@
 import './ItemDetail.css';
-import { defaultText } from '../data/unknown';
+import { defaultText } from '../data/defaultText';
 import { ItemCount } from "./ItemCount";
 import { useState, useContext } from 'react';
-import { CartContext } from '../utils/context';
+import { CartContext } from '../utils/CartContext';
 
-export const ItemDetail = ({loaded, product}) => {
+export const ItemDetail = ({product}) => {
     let {id, nameS: singular, nameP:plural, price, quantity: amt, image:img} = product;
 
     const {addToCart, isInCart, howMany, changeCartAmount} = useContext(CartContext);
@@ -15,7 +15,7 @@ export const ItemDetail = ({loaded, product}) => {
             changeCartAmount(id, counter);
         } else {
             if (counter === 0) return; //don't add if there's nothing to add
-            addToCart({id, singular, counter, price});
+            addToCart({id, singular, plural, counter, price});
         }
     }
     return(
