@@ -31,7 +31,7 @@ export const CartContextProvider = ({children}) => {
             }))
     }
     const deleteFromCart = (id) => {
-        setCart(cart.filter((prod) => prod.id != id));
+        setCart(cart.filter((prod) => prod.id !== id));
     }
     const clearCart = () => {
         setCart([]);

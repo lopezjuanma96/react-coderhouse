@@ -11,10 +11,10 @@ export const ItemDetail = ({loaded, product}) => {
     const [counter, setCounter] = useState(howMany(id));
 
     const addToCartHandler = () => {
-        if (counter === 0) return; //don't add if there's nothing to add
         if(isInCart(id)){
             changeCartAmount(id, counter);
         } else {
+            if (counter === 0) return; //don't add if there's nothing to add
             addToCart({id, singular, counter, price});
         }
     }
